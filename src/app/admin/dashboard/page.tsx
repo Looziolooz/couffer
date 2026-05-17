@@ -45,6 +45,7 @@ export default function AdminDashboard() {
         <div className="flex items-center gap-2">
           <button className="btn btn-ghost btn-sm"><Icon name="download" size={12}/> Esporta report</button>
           <button className="btn btn-primary btn-sm"><Icon name="plus" size={12}/> Nuovo appuntamento</button>
+          <Link href="/" className="btn btn-ghost btn-sm"><Icon name="arrowLeft" size={12}/> Torna al sito</Link>
         </div>
       </div>
 
