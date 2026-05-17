@@ -27,11 +27,11 @@ export const SERVICES: Service[] = [
 ]
 
 export const TEAM: TeamMember[] = [
-  { id: 't1', name: 'Sofia Marchetti', role: 'Stylist Senior', bio: '15 anni di esperienza nel settore luxury', image: 'https://i.pravatar.cc/200?u=sofia', specialties: ['taglio', 'colore'], rating: 4.9 },
-  { id: 't2', name: 'Alessandro Rossi', role: 'Barbiere & Stylist', bio: 'Specializzato in tagli maschili e barbering', image: 'https://i.pravatar.cc/200?u=alessandro', specialties: ['taglio', 'styling'], rating: 4.8 },
-  { id: 't3', name: 'Chiara Bianchi', role: 'Colorista', bio: 'Esperta in colorazioni creative e decolorazioni', image: 'https://i.pravatar.cc/200?u=chiara', specialties: ['colore'], rating: 4.9 },
-  { id: 't4', name: 'Martina Galli', role: 'Estetista', bio: 'Manicure, pedicure e trattamenti viso', image: 'https://i.pravatar.cc/200?u=martina', specialties: ['unghie', 'estetica'], rating: 4.7 },
-  { id: 't5', name: 'Luca Conti', role: 'Massaggiatore', bio: 'Massaggi rilassanti e decontratturanti', image: 'https://i.pravatar.cc/200?u=luca', specialties: ['benessere'], rating: 4.6 },
+  { id: 't1', name: 'Sofia Marchetti', role: 'Stylist Senior', bio: '15 anni di esperienza nel settore luxury', image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=200&q=80', specialties: ['taglio', 'colore'], rating: 4.9 },
+  { id: 't2', name: 'Alessandro Rossi', role: 'Barbiere & Stylist', bio: 'Specializzato in tagli maschili e barbering', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80', specialties: ['taglio', 'styling'], rating: 4.8 },
+  { id: 't3', name: 'Chiara Bianchi', role: 'Colorista', bio: 'Esperta in colorazioni creative e decolorazioni', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80', specialties: ['colore'], rating: 4.9 },
+  { id: 't4', name: 'Martina Galli', role: 'Estetista', bio: 'Manicure, pedicure e trattamenti viso', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80', specialties: ['unghie', 'estetica'], rating: 4.7 },
+  { id: 't5', name: 'Luca Conti', role: 'Massaggiatore', bio: 'Massaggi rilassanti e decontratturanti', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80', specialties: ['benessere'], rating: 4.6 },
 ]
 
 export const PRODUCTS: Product[] = [
@@ -55,12 +55,12 @@ export const TEAM_BY_SPECIALTY = TEAM.reduce<Record<string, TeamMember[]>>((acc,
 }, {} as Record<string, TeamMember[]>)
 
 export const CLIENTS: Client[] = [
-  { id: 'c1', name: 'Elena Verdi', email: 'elena@example.com', phone: '+39 333 111 1111', avatar: 'https://i.pravatar.cc/200?u=elena', totalVisits: 24, totalSpent: 1840, lastVisit: '2025-05-10', status: 'attivo', points: 1240, level: 'Oro' },
-  { id: 'c2', name: 'Marco Neri', email: 'marco@example.com', phone: '+39 333 222 2222', avatar: 'https://i.pravatar.cc/200?u=marco', totalVisits: 12, totalSpent: 680, lastVisit: '2025-05-08', status: 'attivo', points: 480, level: 'Argento' },
-  { id: 'c3', name: 'Giulia Ferrara', email: 'giulia@example.com', phone: '+39 333 333 3333', avatar: 'https://i.pravatar.cc/200?u=giulia', totalVisits: 8, totalSpent: 420, lastVisit: '2025-04-28', status: 'attivo', points: 220, level: 'Bronzo' },
-  { id: 'c4', name: 'Francesco Romano', email: 'francesco@example.com', phone: '+39 333 444 4444', avatar: 'https://i.pravatar.cc/200?u=francesco', totalVisits: 3, totalSpent: 110, lastVisit: '2025-03-15', status: 'inattivo', points: 110, level: 'Bronzo' },
-  { id: 'c5', name: 'Anna Moretti', email: 'anna@example.com', phone: '+39 333 555 5555', avatar: 'https://i.pravatar.cc/200?u=anna', totalVisits: 18, totalSpent: 1350, lastVisit: '2025-05-12', status: 'attivo', points: 1150, level: 'Oro' },
-  { id: 'c6', name: 'Paolo Conti', email: 'paolo@example.com', phone: '+39 333 666 6666', avatar: 'https://i.pravatar.cc/200?u=paolo', totalVisits: 6, totalSpent: 260, lastVisit: '2025-05-01', status: 'attivo', points: 60, level: 'Bronzo' },
+  { id: 'c1', name: 'Elena Verdi', email: 'elena@example.com', phone: '+39 333 111 1111', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80', totalVisits: 24, totalSpent: 1840, lastVisit: '2025-05-10', status: 'attivo', points: 1240, level: 'Oro' },
+  { id: 'c2', name: 'Marco Neri', email: 'marco@example.com', phone: '+39 333 222 2222', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80', totalVisits: 12, totalSpent: 680, lastVisit: '2025-05-08', status: 'attivo', points: 480, level: 'Argento' },
+  { id: 'c3', name: 'Giulia Ferrara', email: 'giulia@example.com', phone: '+39 333 333 3333', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80', totalVisits: 8, totalSpent: 420, lastVisit: '2025-04-28', status: 'attivo', points: 220, level: 'Bronzo' },
+  { id: 'c4', name: 'Francesco Romano', email: 'francesco@example.com', phone: '+39 333 444 4444', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80', totalVisits: 3, totalSpent: 110, lastVisit: '2025-03-15', status: 'inattivo', points: 110, level: 'Bronzo' },
+  { id: 'c5', name: 'Anna Moretti', email: 'anna@example.com', phone: '+39 333 555 5555', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80', totalVisits: 18, totalSpent: 1350, lastVisit: '2025-05-12', status: 'attivo', points: 1150, level: 'Oro' },
+  { id: 'c6', name: 'Paolo Conti', email: 'paolo@example.com', phone: '+39 333 666 6666', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80', totalVisits: 6, totalSpent: 260, lastVisit: '2025-05-01', status: 'attivo', points: 60, level: 'Bronzo' },
 ]
 
 export const TODAY_APPOINTMENTS: Appointment[] = [
@@ -95,11 +95,11 @@ export const INVOICES: Invoice[] = [
 ]
 
 export const STAFF_PERFORMANCE = [
-  { name: 'Sofia Marchetti', role: 'Stylist Senior', revenue: 3850, clients: 42, rating: 4.9, image: 'https://i.pravatar.cc/200?u=sofia' },
-  { name: 'Alessandro Rossi', role: 'Barbiere & Stylist', revenue: 2240, clients: 38, rating: 4.8, image: 'https://i.pravatar.cc/200?u=alessandro' },
-  { name: 'Chiara Bianchi', role: 'Colorista', revenue: 3100, clients: 28, rating: 4.9, image: 'https://i.pravatar.cc/200?u=chiara' },
-  { name: 'Martina Galli', role: 'Estetista', revenue: 1580, clients: 35, rating: 4.7, image: 'https://i.pravatar.cc/200?u=martina' },
-  { name: 'Luca Conti', role: 'Massaggiatore', revenue: 1200, clients: 22, rating: 4.6, image: 'https://i.pravatar.cc/200?u=luca' },
+  { name: 'Sofia Marchetti', role: 'Stylist Senior', revenue: 3850, clients: 42, rating: 4.9, image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=100&q=80' },
+  { name: 'Alessandro Rossi', role: 'Barbiere & Stylist', revenue: 2240, clients: 38, rating: 4.8, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' },
+  { name: 'Chiara Bianchi', role: 'Colorista', revenue: 3100, clients: 28, rating: 4.9, image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80' },
+  { name: 'Martina Galli', role: 'Estetista', revenue: 1580, clients: 35, rating: 4.7, image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80' },
+  { name: 'Luca Conti', role: 'Massaggiatore', revenue: 1200, clients: 22, rating: 4.6, image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80' },
 ]
 
 export const CATEGORIES = [
@@ -115,10 +115,10 @@ export const CATEGORIES = [
 ]
 
 export const TESTIMONIALS = [
-  { id: 'rev1', name: 'Laura F.', text: 'Miglior salone in città! Sofia è incredibile, ogni volta esco più bella.', rating: 5, avatar: 'https://i.pravatar.cc/100?u=laura' },
-  { id: 'rev2', name: 'Marco B.', text: 'Taglio perfetto, ambiente accogliente. Alessandro è un artista.', rating: 5, avatar: 'https://i.pravatar.cc/100?u=marco-b' },
-  { id: 'rev3', name: 'Giulia R.', text: 'La maschera che ho comprato è fantastica. Consigliatissimo!', rating: 4, avatar: 'https://i.pravatar.cc/100?u=giulia-r' },
-  { id: 'rev4', name: 'Francesca T.', text: 'Professionalità e cortesia. La mia manicure preferita.', rating: 5, avatar: 'https://i.pravatar.cc/100?u=francesca' },
+  { id: 'rev1', name: 'Laura F.', text: 'Miglior salone in città! Sofia è incredibile, ogni volta esco più bella.', rating: 5, avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80' },
+  { id: 'rev2', name: 'Marco B.', text: 'Taglio perfetto, ambiente accogliente. Alessandro è un artista.', rating: 5, avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' },
+  { id: 'rev3', name: 'Giulia R.', text: 'La maschera che ho comprato è fantastica. Consigliatissimo!', rating: 4, avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80' },
+  { id: 'rev4', name: 'Francesca T.', text: 'Professionalità e cortesia. La mia manicure preferita.', rating: 5, avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80' },
 ]
 
 export const TIME_SLOTS = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30']

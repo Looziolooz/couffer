@@ -137,7 +137,7 @@ export default function HomePage() {
         <div className="grid gap-6 md:grid-cols-2">
           {TESTIMONIALS.map(t => (
             <Card key={t.id} className="p-6 flex gap-4">
-              <img src={t.avatar || `https://i.pravatar.cc/100?u=${t.id}`} alt={t.name} className="w-12 h-12 rounded-full object-cover flex-shrink-0" loading="lazy" />
+              <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover flex-shrink-0" loading="lazy" />
               <div>
                 <div className="flex items-center gap-1 mb-2">
                   {Array.from({ length: 5 }).map((_, i) => (
