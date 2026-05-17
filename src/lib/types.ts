@@ -28,6 +28,8 @@ export interface Product {
   inStock: boolean
   stock: number
   threshold: number
+  size?: string
+  brand?: string
 }
 
 export interface Appointment {
@@ -45,6 +47,7 @@ export interface Appointment {
   status: 'confermato' | 'completato' | 'cancellato'
   duration: number
   price: number
+  tone?: number
 }
 
 export interface Client {
