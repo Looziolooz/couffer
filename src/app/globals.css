@@ -171,7 +171,8 @@
   .tbl tr:last-child td { border-bottom: 0; }
   .tbl tr:hover td { background: var(--color-bg-soft); }
 
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 640px) { .kpi-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
   .kpi {
     background: var(--color-bg-card); border: 1px solid var(--color-line);
     border-radius: var(--radius-lg); padding: 22px;

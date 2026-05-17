@@ -76,6 +76,7 @@ export default function AdminInvoices() {
       </div>
 
       {/* TABLE */}
+      <div className="overflow-x-auto">
       <table className="tbl">
         <thead>
           <tr>
@@ -111,6 +112,7 @@ export default function AdminInvoices() {
           ))}
         </tbody>
       </table>
+      </div>
 
       {/* DETAIL MODAL */}
       <Modal open={!!selected} onClose={() => setSelectedId(null)}>
@@ -144,7 +146,7 @@ function InvoiceDetail({ inv, onClose }: { inv: typeof INVOICES[0]; onClose: () 
         <button className="icon-btn" onClick={onClose}><Icon name="x" size={14}/></button>
       </div>
 
-      <div className="grid grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <div>
           <div className="eyebrow mb-2">Da</div>
           <div className="font-display text-lg mb-1">Couffer</div>
@@ -161,6 +163,7 @@ function InvoiceDetail({ inv, onClose }: { inv: typeof INVOICES[0]; onClose: () 
         </div>
       </div>
 
+      <div className="overflow-x-auto">
       <table className="tbl mb-4">
         <thead>
           <tr><th>Descrizione</th><th style={{ textAlign: 'right' }}>Qtà</th><th style={{ textAlign: 'right' }}>Prezzo</th><th>IVA</th><th style={{ textAlign: 'right' }}>Totale</th></tr>
@@ -177,6 +180,7 @@ function InvoiceDetail({ inv, onClose }: { inv: typeof INVOICES[0]; onClose: () 
           ))}
         </tbody>
       </table>
+      </div>
 
       <div className="flex justify-end mb-6">
         <div className="min-w-[260px] flex flex-col gap-2">
@@ -218,7 +222,7 @@ function NewInvoiceForm({ onClose }: { onClose: () => void }) {
         <button className="icon-btn" onClick={onClose}><Icon name="x" size={14}/></button>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <div className="field">
           <span className="label">Cliente</span>
           <select className="select">
@@ -243,7 +247,7 @@ function NewInvoiceForm({ onClose }: { onClose: () => void }) {
       <div className="eyebrow mb-2">Voci</div>
       <div className="flex flex-col gap-2 mb-4">
         {items.map((it, i) => (
-          <div key={i} className="grid grid-cols-[1fr_70px_100px_100px_40px] gap-2 items-center">
+          <div key={i} className="grid grid-cols-[1fr_60px_80px_80px_36px] sm:grid-cols-[1fr_70px_100px_100px_40px] gap-2 items-center">
             <input className="input" placeholder="Descrizione" value={it.description}
               onChange={e => update(i, 'description', e.target.value)}/>
             <input className="input" type="number" value={it.quantity}

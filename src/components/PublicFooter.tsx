@@ -6,7 +6,7 @@ export default function PublicFooter() {
   return (
     <footer className="border-t border-line bg-bg-soft mt-20 pt-16 pb-10">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-8 lg:gap-12 pb-12">
           <div>
             <div className="flex items-baseline gap-2.5 font-display text-2xl font-medium tracking-wide text-ink mb-4">
               Couffer

@@ -67,6 +67,7 @@ export default function AdminInventory() {
       </div>
 
       {/* TABLE */}
+      <div className="overflow-x-auto">
       <table className="tbl">
         <thead>
           <tr>
@@ -121,6 +122,7 @@ export default function AdminInventory() {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

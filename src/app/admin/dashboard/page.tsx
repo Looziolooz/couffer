@@ -77,7 +77,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* MAIN GRID */}
-      <div className="grid grid-cols-[1.4fr_1fr] gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-4 mt-4">
         {/* TODAY */}
         <div className="card-elev p-0">
           <div className="flex justify-between items-center px-6 py-5 border-b border-line">
@@ -139,11 +139,12 @@ export default function AdminDashboard() {
       </div>
 
       {/* SECOND ROW */}
-      <div className="grid grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         {/* TOP CLIENTS */}
         <div className="card-elev">
           <div className="eyebrow mb-1">Clienti top · ultimo trimestre</div>
           <h3 className="font-display text-[22px] font-medium text-ink mb-5">Più fedeli</h3>
+          <div className="overflow-x-auto">
           <table className="tbl" style={{ background: 'transparent', border: 'none' }}>
             <thead>
               <tr><th style={{ background: 'transparent' }}>Cliente</th><th style={{ background: 'transparent' }}>Visite</th><th style={{ background: 'transparent' }}>Spesa</th><th style={{ background: 'transparent' }}>Status</th></tr>
@@ -164,6 +165,7 @@ export default function AdminDashboard() {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
 
         {/* STAFF PERFORMANCE */}
@@ -204,24 +206,26 @@ export default function AdminDashboard() {
           </div>
           <Link href="/admin/invoices" className="btn btn-ghost btn-sm">Apri fatturazione <Icon name="arrowRight" size={12}/></Link>
         </div>
-        <table className="tbl" style={{ border: 'none', borderRadius: 0 }}>
-          <thead>
-            <tr><th>Numero</th><th>Data</th><th>Cliente</th><th>Importo</th><th>IVA</th><th>Stato</th><th></th></tr>
-          </thead>
-          <tbody>
-            {pendingInvoices.map(inv => (
-              <tr key={inv.id}>
-                <td className="strong">{inv.number}</td>
-                <td>{inv.date}</td>
-                <td>{inv.clientName}</td>
-                <td className="strong">{formatEur(inv.total)}</td>
-                <td>22%</td>
-                <td><span className="badge-pill warn">{inv.status}</span></td>
-                <td><button className="btn btn-quiet btn-sm"><Icon name="mail" size={12}/> Sollecito</button></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="overflow-x-auto">
+          <table className="tbl" style={{ border: 'none', borderRadius: 0 }}>
+            <thead>
+              <tr><th>Numero</th><th>Data</th><th>Cliente</th><th>Importo</th><th>IVA</th><th>Stato</th><th></th></tr>
+            </thead>
+            <tbody>
+              {pendingInvoices.map(inv => (
+                <tr key={inv.id}>
+                  <td className="strong">{inv.number}</td>
+                  <td>{inv.date}</td>
+                  <td>{inv.clientName}</td>
+                  <td className="strong">{formatEur(inv.total)}</td>
+                  <td>22%</td>
+                  <td><span className="badge-pill warn">{inv.status}</span></td>
+                  <td><button className="btn btn-quiet btn-sm"><Icon name="mail" size={12}/> Sollecito</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

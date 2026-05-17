@@ -37,8 +37,8 @@ export default function AdminCalendar() {
         </div>
       </div>
 
-      <div className="grid grid-cols-[1fr_280px] gap-4 items-start">
-        <div className="agenda" style={{ gridTemplateColumns: `60px repeat(${TEAM.length}, 1fr)` }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4 items-start">
+        <div className="agenda overflow-x-auto" style={{ gridTemplateColumns: `60px repeat(${TEAM.length}, 1fr)` }}>
           <div className="agenda-h" style={{ background: 'var(--color-bg-soft)' }}></div>
           {TEAM.map(t => (
             <div key={t.id} className="agenda-h staff">
