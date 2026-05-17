@@ -4,38 +4,48 @@ import Icon from '@/components/ui'
 
 export default function PublicFooter() {
   return (
-    <footer className="bg-amber-900 text-amber-50">
-      <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <h4 className="text-lg font-bold mb-3">{COMPANY.name}</h4>
-          <p className="text-sm text-amber-200 leading-relaxed">{COMPANY.tagline}</p>
-        </div>
-        <div>
-          <h5 className="font-semibold mb-3 text-amber-100">Contatti</h5>
-          <div className="space-y-2 text-sm text-amber-200">
-            <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 hover:text-white transition-colors"><Icon name="phone" size={14} />{COMPANY.phone}</a>
-            <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 hover:text-white transition-colors"><Icon name="mail" size={14} />{COMPANY.email}</a>
-            <p className="flex items-center gap-2"><Icon name="mapPin" size={14} />{COMPANY.address}</p>
-            <p className="flex items-center gap-2"><Icon name="clock" size={14} />{COMPANY.hours}</p>
+    <footer className="border-t border-line bg-bg-soft mt-20 pt-16 pb-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-8">
+        <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12">
+          <div>
+            <div className="flex items-baseline gap-2.5 font-display text-2xl font-medium tracking-wide text-ink mb-4">
+              Couffer
+              <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block -translate-y-0.5" />
+              <span className="font-sans text-[10px] font-medium tracking-widest uppercase text-ink-3">Parrucchiere</span>
+            </div>
+            <p className="font-display text-lg italic text-ink-2 leading-relaxed max-w-xs">
+              Il tuo benessere, la nostra arte
+            </p>
+          </div>
+          <div>
+            <h5 className="text-[11px] font-medium tracking-widest uppercase text-ink-3 mb-4">Servizi</h5>
+            <ul className="flex flex-col gap-2 text-[13.5px] text-ink-2">
+              <li><Link href="/services" className="hover:text-ink transition-colors">Servizi</Link></li>
+              <li><Link href="/team" className="hover:text-ink transition-colors">Il team</Link></li>
+              <li><Link href="/shop" className="hover:text-ink transition-colors">Shop</Link></li>
+              <li><Link href="/booking" className="hover:text-ink transition-colors">Prenota</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-[11px] font-medium tracking-widest uppercase text-ink-3 mb-4">Visita</h5>
+            <ul className="flex flex-col gap-2 text-[13.5px] text-ink-2">
+              <li>{COMPANY.address}</li>
+              <li>{COMPANY.hours}</li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-[11px] font-medium tracking-widest uppercase text-ink-3 mb-4">Contatti</h5>
+            <ul className="flex flex-col gap-2 text-[13.5px] text-ink-2">
+              <li><a href={`tel:${COMPANY.phone}`} className="hover:text-ink transition-colors">{COMPANY.phone}</a></li>
+              <li><a href={`mailto:${COMPANY.email}`} className="hover:text-ink transition-colors">{COMPANY.email}</a></li>
+              <li className="flex items-center gap-2"><Icon name="clock" size={14} />{COMPANY.hours}</li>
+            </ul>
           </div>
         </div>
-        <div>
-          <h5 className="font-semibold mb-3 text-amber-100">Link</h5>
-          <div className="space-y-2 text-sm">
-            <Link href="/services" className="block text-amber-200 hover:text-white transition-colors">Servizi</Link>
-            <Link href="/team" className="block text-amber-200 hover:text-white transition-colors">Team</Link>
-            <Link href="/shop" className="block text-amber-200 hover:text-white transition-colors">Shop</Link>
-            <Link href="/booking" className="block text-amber-200 hover:text-white transition-colors">Prenota</Link>
-          </div>
+        <div className="border-t border-line pt-6 flex justify-between text-xs text-ink-3">
+          <span>&copy; {new Date().getFullYear()} Couffer &middot; Demo version</span>
+          <span>Privacy &middot; Cookie &middot; Termini</span>
         </div>
-        <div>
-          <h5 className="font-semibold mb-3 text-amber-100">Orari</h5>
-          <p className="text-sm text-amber-200">{COMPANY.hours}</p>
-          <p className="text-sm text-amber-300 mt-2">Domenica e Lunedì chiusi</p>
-        </div>
-      </div>
-      <div className="border-t border-amber-800 py-4 text-center text-xs text-amber-300">
-        &copy; {new Date().getFullYear()} {COMPANY.name}. Demo version.
       </div>
     </footer>
   )

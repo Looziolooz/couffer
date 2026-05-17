@@ -48,11 +48,11 @@ const ICONS: Record<string, ReactNode> = {
   heart: <><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></>,
 }
 
-export function Icon({ name, size = 20, className = '' }: { name: string; size?: number; className?: string }) {
+export function Icon({ name, size = 20, className = '', stroke = 2 }: { name: string; size?: number; className?: string; stroke?: number }) {
   const paths = ICONS[name]
   if (!paths) return null
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round">
       {paths}
     </svg>
   )
@@ -60,7 +60,7 @@ export function Icon({ name, size = 20, className = '' }: { name: string; size?:
 
 export function Photo({ src, alt, className = '' }: { src?: string; alt: string; className?: string }) {
   const fallback = alt.charAt(0).toUpperCase()
-  if (!src) return <div className={`bg-gray-200 text-gray-500 flex items-center justify-center text-lg font-semibold ${className}`}>{fallback}</div>
+  if (!src) return <div className={`bg-gradient-to-br from-accent-soft to-accent/30 text-ink-3 flex items-center justify-center font-display italic ${className}`}>{fallback}</div>
   return <img src={src} alt={alt} className={className} loading="lazy" onError={e => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden') }} />
 }
 
@@ -68,9 +68,9 @@ export function Avatar({ src, name, size = 'md' }: { src?: string; name: string;
   const dims = { sm: 'w-8 h-8 text-xs', md: 'w-10 h-10 text-sm', lg: 'w-14 h-14 text-lg' }
   const fallback = name.charAt(0).toUpperCase()
   return (
-    <div className={`relative rounded-full overflow-hidden bg-gray-200 flex-shrink-0 ${dims[size]}`}>
+    <div className={`relative rounded-full overflow-hidden bg-gradient-to-br from-accent-soft to-accent/30 text-ink-3 flex-shrink-0 font-display italic ${dims[size]}`}>
       {src ? <img src={src} alt={name} className="w-full h-full object-cover" loading="lazy" onError={e => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden') }} /> : null}
-      <div className={`absolute inset-0 flex items-center justify-center text-gray-500 font-semibold ${src ? 'hidden' : ''}`}>{fallback}</div>
+      <div className={`absolute inset-0 flex items-center justify-center ${src ? 'hidden' : ''}`}>{fallback}</div>
     </div>
   )
 }
@@ -78,11 +78,11 @@ export function Avatar({ src, name, size = 'md' }: { src?: string; name: string;
 export function Modal({ open, onClose, title, children }: { open: boolean; onClose: () => void; title?: string; children: React.ReactNode }) {
   if (!open) return null
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40" onClick={onClose}>
-      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[85vh] overflow-auto" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-          {title && <h3 className="text-lg font-semibold text-gray-900">{title}</h3>}
-          <button onClick={onClose} className="ml-auto p-1 hover:bg-gray-100 rounded-lg transition-colors"><Icon name="x" size={18} /></button>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/30 backdrop-blur-sm animate-[fadeUp_.25s_ease]" onClick={onClose}>
+      <div className="w-full max-w-lg max-h-[85vh] overflow-auto bg-bg-card rounded-lg shadow-lg" onClick={e => e.stopPropagation()} style={{ boxShadow: '0 12px 36px rgba(31,27,23,0.10)' }}>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-line">
+          {title && <h3 className="font-display text-xl font-medium text-ink">{title}</h3>}
+          <button onClick={onClose} className="ml-auto p-1 hover:bg-bg-soft rounded-lg transition-colors text-ink-2"><Icon name="x" size={18} /></button>
         </div>
         <div className="px-6 py-4">{children}</div>
       </div>
@@ -92,23 +92,29 @@ export function Modal({ open, onClose, title, children }: { open: boolean; onClo
 
 export function Stepper({ steps, current }: { steps: { num: number; label: string }[]; current: number }) {
   return (
-    <div className="flex items-center gap-2 mb-8">
+    <div className="flex items-center gap-0 mb-12">
       {steps.map((s, i) => (
-        <div key={s.num} className="flex items-center gap-2">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
-            s.num === current ? 'bg-amber-800 text-white' : s.num < current ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500'
-          }`}>{s.num < current ? <Icon name="check" size={16} /> : s.num}</div>
-          <span className={`text-sm hidden sm:inline ${s.num === current ? 'text-amber-800 font-medium' : s.num < current ? 'text-green-600' : 'text-gray-400'}`}>{s.label}</span>
-          {i < steps.length - 1 && <div className={`w-8 h-0.5 ${s.num < current ? 'bg-green-500' : 'bg-gray-200'}`} />}
+        <div key={s.num} className="flex items-center gap-3">
+          <div className={`flex items-center gap-3 ${s.num === current ? 'text-ink' : s.num < current ? 'text-ink-2' : 'text-ink-3'}`}>
+            <div className={`w-[26px] h-[26px] rounded-full flex items-center justify-center text-xs font-medium border ${
+              s.num === current || s.num < current ? 'bg-pill-bg text-bg-soft border-pill-bg' : 'border-line bg-bg-soft text-ink-3'
+            }`}>
+              {s.num < current ? <Icon name="check" size={12} stroke={2} /> : s.num}
+            </div>
+            <span className="text-xs sm:text-sm">{s.label}</span>
+          </div>
+          {i < steps.length - 1 && (
+            <div className={`w-6 sm:w-8 h-px mx-2 ${s.num < current ? 'bg-accent' : 'bg-line'}`} />
+          )}
         </div>
       ))}
     </div>
   )
 }
 
-export function PageSection({ id, className = '', children, dark = false }: { id?: string; className?: string; children: React.ReactNode; dark?: boolean }) {
+export function PageSection({ id, className = '', children }: { id?: string; className?: string; children: React.ReactNode }) {
   return (
-    <section id={id} className={`py-16 md:py-24 px-4 ${dark ? 'bg-amber-900 text-amber-50' : 'bg-white'} ${className}`}>
+    <section id={id} className={`py-16 sm:py-20 px-4 ${className}`}>
       <div className="max-w-6xl mx-auto">{children}</div>
     </section>
   )
@@ -116,12 +122,13 @@ export function PageSection({ id, className = '', children, dark = false }: { id
 
 export function SectionGrid({ children, cols = 3 }: { children: React.ReactNode; cols?: number }) {
   const colClass = cols >= 4 ? 'lg:grid-cols-4' : cols >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'
-  return <div className={`grid gap-6 sm:grid-cols-2 ${colClass}`}>{children}</div>
+  return <div className={`grid gap-4 sm:grid-cols-2 ${colClass}`}>{children}</div>
 }
 
 export function Card({ className = '', children, onClick }: { className?: string; children: React.ReactNode; onClick?: () => void }) {
   return (
-    <div className={`bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all ${onClick ? 'cursor-pointer' : ''} ${className}`} onClick={onClick}>
+    <div className={`bg-bg-card border border-line rounded-lg transition-all ${onClick ? 'cursor-pointer hover:-translate-y-0.5 hover:shadow-warm hover:border-accent-soft' : ''} ${className}`}
+      onClick={onClick} style={onClick ? { transition: 'all .3s ease' } : {}}>
       {children}
     </div>
   )
@@ -129,28 +136,28 @@ export function Card({ className = '', children, onClick }: { className?: string
 
 export function Badge({ variant = 'default', children, className = '' }: { variant?: 'default' | 'success' | 'warning' | 'danger' | 'info'; children: React.ReactNode; className?: string }) {
   const styles = {
-    default: 'bg-gray-100 text-gray-700',
-    success: 'bg-green-100 text-green-700',
-    warning: 'bg-amber-100 text-amber-700',
-    danger: 'bg-red-100 text-red-700',
-    info: 'bg-blue-100 text-blue-700',
+    default: 'bg-accent-tint text-accent',
+    success: 'bg-green-100 text-success',
+    warning: 'bg-amber-100 text-warn',
+    danger: 'bg-red-100 text-danger',
+    info: 'bg-blue-100 text-accent-soft',
   }
-  return <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${styles[variant]} ${className}`}>{children}</span>
+  return <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11.5px] font-medium ${styles[variant]} ${className}`}>{children}</span>
 }
-
-export default Icon
 
 export function KpiCard({ label, value, subtitle, icon }: { label: string; value: string; subtitle?: string; icon?: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+    <div className="bg-bg-card border border-line rounded-lg p-5 shadow-sm relative overflow-hidden">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-gray-500">{label}</p>
-          <p className="text-2xl font-bold text-gray-900 mt-1">{value}</p>
-          {subtitle && <p className="text-xs text-gray-400 mt-1">{subtitle}</p>}
+          <p className="text-[11px] font-medium tracking-widest uppercase text-ink-3">{label}</p>
+          <p className="font-display text-[34px] font-medium leading-none text-ink mt-2">{value}</p>
+          {subtitle && <p className="text-xs text-ink-3 mt-1">{subtitle}</p>}
         </div>
-        {icon && <div className="text-amber-700/60">{icon}</div>}
+        {icon && <div className="text-accent/60">{icon}</div>}
       </div>
     </div>
   )
 }
+
+export default Icon

@@ -152,7 +152,7 @@ export default function HomePage() {
         </div>
       </PageSection>
 
-      <PageSection id="cta" dark>
+      <PageSection id="cta" className="bg-pill-bg text-bg-soft">
         <div className="text-center max-w-xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Pronto per il tuo appuntamento?</h2>
           <p className="text-amber-200 mb-8">Prenota online in pochi click o contattaci direttamente.</p>
