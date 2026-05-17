@@ -51,6 +51,9 @@ export default function PublicHeader() {
           <Link href="/booking" className="btn btn-primary btn-sm hidden sm:inline-flex">
             Prenota <Icon name="arrowRight" size={14} />
           </Link>
+          <Link href="/admin/dashboard" className="hidden md:inline-flex btn btn-ghost btn-sm uppercase tracking-widest text-[11px] font-medium text-ink-3 hover:text-ink">
+            Admin
+          </Link>
           <button onClick={() => setMobileOpen(true)} className="md:hidden w-8 h-8 inline-flex items-center justify-center rounded-full border border-line bg-bg-soft text-ink-2 hover:text-ink transition-all">
             <Icon name="menu" size={18} />
           </button>
